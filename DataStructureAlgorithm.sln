@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataStructure", "DataStructure", "{E2AF4486-9E0C-4069-8E71-F8B985BC83E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Algorithm", "Algorithm", "{8E7D0746-358C-4A91-B04D-985CC74562D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicArray", "DataStructure\DynamicArray\DynamicArray.csproj", "{D5B9F872-4588-4336-B6BE-A4A5F8A24872}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5B9F872-4588-4336-B6BE-A4A5F8A24872}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5B9F872-4588-4336-B6BE-A4A5F8A24872}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5B9F872-4588-4336-B6BE-A4A5F8A24872}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5B9F872-4588-4336-B6BE-A4A5F8A24872}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D5B9F872-4588-4336-B6BE-A4A5F8A24872} = {E2AF4486-9E0C-4069-8E71-F8B985BC83E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6AA8E76B-8816-4800-8F52-E5788D57E5AA}
+	EndGlobalSection
+EndGlobal
