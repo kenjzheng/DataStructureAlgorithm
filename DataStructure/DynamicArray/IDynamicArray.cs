@@ -24,6 +24,6 @@ namespace DynamicArray
 
         bool Contains(T t);
 
-        void Add(T t);
+        int Add(T t);
     }
 }

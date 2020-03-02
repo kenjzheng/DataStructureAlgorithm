@@ -85,7 +85,7 @@ namespace DynamicArray
             array[index] = t;
         }
 
-        public void Add(T t)
+        public int Add(T t)
         {
             if (pointer < array.Length)
             {
@@ -103,6 +103,8 @@ namespace DynamicArray
                 array[pointer] = t;
                 pointer++;
             }
+            
+            return pointer;
         }
 
         public IEnumerator<T> GetEnumerator()
