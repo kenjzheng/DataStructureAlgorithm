@@ -111,7 +111,10 @@ namespace DynamicArray
         {
             for (int i= 0; i<array.Length; i++)
             {
-                yield return array[i];
+                if (array[i] != null)
+                {
+                    yield return array[i];
+                }
             }
         }
 
