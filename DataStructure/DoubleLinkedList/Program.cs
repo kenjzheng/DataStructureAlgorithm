@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using Common;
 
 namespace DoubleLinkedList
 {
@@ -8,12 +9,12 @@ namespace DoubleLinkedList
     {
         static void Main(string[] args)
         {
-            IDoubleLinkedList<MyObject> linkedList = new DoubleLinkedList<MyObject>();
+            IDoubleLinkedList<EquatbleObject> linkedList = new DoubleLinkedList<EquatbleObject>();
             
             //test Add() method
             for (int i=0; i<10; i++)
             {
-                var obj = new MyObject(i);
+                var obj = new EquatbleObject(i);
                 linkedList.Add(obj);
             }
 
@@ -22,7 +23,7 @@ namespace DoubleLinkedList
             //test AddFirst() method
             for (int i = 0; i < 10; i++)
             {
-                var obj = new MyObject(i);
+                var obj = new EquatbleObject(i);
                 linkedList.AddFirst(obj);
             }
 
@@ -31,7 +32,7 @@ namespace DoubleLinkedList
             //test RemoveFirst() method
             for (int i = 0; i < 3; i++)
             {
-                var obj = new MyObject(i);
+                var obj = new EquatbleObject(i);
                 linkedList.Add(obj);
             }
             linkedList.RemoveFirst();
@@ -41,7 +42,7 @@ namespace DoubleLinkedList
             //test RemoveLast() method
             for (int i = 0; i < 3; i++)
             {
-                var obj = new MyObject(i);
+                var obj = new EquatbleObject(i);
                 linkedList.Add(obj);
             }
             linkedList.RemoveLast();
@@ -51,40 +52,40 @@ namespace DoubleLinkedList
             //test GetEnumerator() method
             for (int i = 0; i < 10; i++)
             {
-                var obj = new MyObject(i);
+                var obj = new EquatbleObject(i);
                 linkedList.Add(obj);
             }
 
             var enumerator = linkedList.GetEnumerator();
             while (enumerator.MoveNext())
             {
-                var obj = enumerator.Current as MyObject;
+                var obj = enumerator.Current as EquatbleObject;
                 Console.WriteLine(obj.ObjectValue.ToString());
             }
 
             //test Contains() method
             linkedList.Clear();
-            linkedList.Add(new MyObject(1));
-            linkedList.Add(new MyObject(2));
-            linkedList.Add(new MyObject(3));
+            linkedList.Add(new EquatbleObject(1));
+            linkedList.Add(new EquatbleObject(2));
+            linkedList.Add(new EquatbleObject(3));
 
-            Console.WriteLine(linkedList.Contains(new MyObject(2)));
-            Console.WriteLine(linkedList.Contains(new MyObject(5)));
+            Console.WriteLine(linkedList.Contains(new EquatbleObject(2)));
+            Console.WriteLine(linkedList.Contains(new EquatbleObject(5)));
 
             //test Remove() method
-            linkedList.Remove(new MyObject(1));
-            Console.WriteLine(linkedList.Contains(new MyObject(1)));
-            linkedList.AddFirst(new MyObject(1));
-            linkedList.Remove(new MyObject(2));
+            linkedList.Remove(new EquatbleObject(1));
+            Console.WriteLine(linkedList.Contains(new EquatbleObject(1)));
+            linkedList.AddFirst(new EquatbleObject(1));
+            linkedList.Remove(new EquatbleObject(2));
             enumerator = linkedList.GetEnumerator();
             while (enumerator.MoveNext())
             {
-                var obj = enumerator.Current as MyObject;
+                var obj = enumerator.Current as EquatbleObject;
                 Console.WriteLine(obj.ObjectValue.ToString());
             }
             
-            linkedList.Remove(new MyObject(3));
-            linkedList.Remove(new MyObject(1));
+            linkedList.Remove(new EquatbleObject(3));
+            linkedList.Remove(new EquatbleObject(1));
 
             Console.ReadLine();
         }

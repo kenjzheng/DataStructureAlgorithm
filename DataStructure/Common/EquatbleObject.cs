@@ -1,22 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Text;
 
-namespace DoubleLinkedList
+namespace Common
 {
-    public class MyObject : IEquatable<MyObject>
+    public class EquatbleObject : IEquatable<EquatbleObject>
     {
-        private int value;
+        public int ObjectValue { get; }
 
-        public int ObjectValue => value;
-
-        public MyObject(int value)
+        public EquatbleObject(int value)
         {
-            this.value = value;
+            this.ObjectValue = value;
         }
 
-        public bool Equals([AllowNull] MyObject other)
+        public bool Equals([AllowNull] EquatbleObject other)
         {
             return this.ObjectValue == other.ObjectValue;
         }
@@ -28,7 +24,7 @@ namespace DoubleLinkedList
                 return false;
             }
 
-            MyObject myObj = obj as MyObject;
+            EquatbleObject myObj = obj as EquatbleObject;
             if (myObj is null)
             {
                 return false;
