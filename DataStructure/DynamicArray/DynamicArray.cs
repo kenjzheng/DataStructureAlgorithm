@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DynamicArray
 {
-    public class DynamicArray<T> : IDynamicArray<T> where T : IEquatable<T>
+    public class DynamicArray<T> : IDynamicArray<T> where T : IEquatable<T>, IComparable<T>
     {
         private int initialArraySize = 10;
         private int pointer = 0;

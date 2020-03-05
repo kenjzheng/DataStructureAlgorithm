@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DynamicArray
 {
-    public interface IDynamicArray<T> : IEnumerable<T> where T : IEquatable<T>
+    public interface IDynamicArray<T> : IEnumerable<T> where T : IEquatable<T>, IComparable<T>
     {
         int Size { get; }
 

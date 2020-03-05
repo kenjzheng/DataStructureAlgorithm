@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Common
 {
-    public class EquatbleObject : IEquatable<EquatbleObject>
+    public class EquatbleObject : IEquatable<EquatbleObject>, IComparable<EquatbleObject>
     {
         public int ObjectValue { get; }
 
@@ -32,6 +32,23 @@ namespace Common
             else
             {
                 return this.Equals(myObj);
+            }
+        }
+
+        public int CompareTo([AllowNull] EquatbleObject other)
+        {
+            EquatbleObject otherObject = other as EquatbleObject;
+            if (this.ObjectValue > otherObject.ObjectValue)
+            {
+                return 1;
+            }
+            else if (this.ObjectValue == otherObject.ObjectValue)
+            {
+                return 0;
+            }
+            else
+            {
+                return -1;
             }
         }
     }
