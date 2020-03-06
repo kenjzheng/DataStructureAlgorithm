@@ -28,38 +28,98 @@ namespace PriorityQueue
         public void Clear()
         {
             array.Clear();
+            tailIndex = -1;
         }
 
         public bool Contains(T t)
         {
-            throw new NotImplementedException();
+            if (!IsEmpty())
+            {
+                var index = 0;
+                while (index <= tailIndex)
+                {
+                    if (array[index].Equals(t))
+                    {
+                        return true;
+                    }
+                    index++;
+                }
+            }
+            
+            return false;
         }
 
         public T Peek()
         {
-            throw new NotImplementedException();
+            if (!IsEmpty())
+            {
+                return array[tailIndex];
+            }
+            return default(T);
         }
 
         public T Poll()
         {
-            (array[0], array[tailIndex]) = (array[tailIndex], array[0]);
-            var returnValue = array[tailIndex];
-            array.RemoveAt(tailIndex);
-            tailIndex--;
-            SwimDown(0);
+            if (!IsEmpty())
+            {
+                (array[0], array[tailIndex]) = (array[tailIndex], array[0]);
+                var returnValue = array[tailIndex];
+                array.RemoveAt(tailIndex);
+                tailIndex--;
+                SwimDown(0);
 
-            return returnValue;
+                return returnValue;
+            }
+            return default(T);
         }
 
         public bool Remove(T t)
         {
-            throw new NotImplementedException();
+            if (!IsEmpty())
+            {
+                var index = 0;
+                while (index <= tailIndex)
+                {
+                    if (array[index].Equals(t))
+                    {
+                        if (index != tailIndex)
+                        {
+                            (array[index], array[tailIndex]) = (array[tailIndex], array[index]);
+                            array.RemoveAt(tailIndex);
+                            tailIndex--;
+
+                            if (array[index].CompareTo(array[GetParentIndex(index)]) < 0)
+                            {
+                                BubbleUp(index);
+                            }
+                            else
+                            {
+                                SwimDown(index);
+                            }
+                        }
+                        else
+                        {
+                            array.RemoveAt(tailIndex);
+                            tailIndex--;
+                        }
+                    }
+                    index++;
+                }
+            }
+
+            return false;
         }
+
+        public bool IsEmpty() => tailIndex < 0;
 
         private int GetParentIndex(int childIndex)
         {
             return childIndex % 2 == 1 ? childIndex / 2 : childIndex / 2 - 1;
         }
+
+        private int GetLeftChildIndex(int parentIndex) => parentIndex * 2 + 1;
+
+        private int GetRightChildIndex(int parentIndex) => parentIndex * 2 + 2;
 
         private void BubbleUp(int childIndex)
         {
@@ -84,22 +144,17 @@ namespace PriorityQueue
 
         private void SwimDown(int parentIndex)
         {
-            var leftChildIndex = parentIndex * 2 + 1;
-            var rightChildIndex = parentIndex * 2 + 2;
+            var leftChildIndex = GetLeftChildIndex(parentIndex);
+            var rightChildIndex = GetRightChildIndex(parentIndex);
 
             if (rightChildIndex <= tailIndex) //two children
             {
-                if (array[leftChildIndex].CompareTo(array[rightChildIndex]) <= 0) //left is smaller than right, or tie
+                if (array[leftChildIndex].CompareTo(array[rightChildIndex]) <= 0) //left is smaller than, equal to right
                 {
                     if (array[parentIndex].CompareTo(array[leftChildIndex]) > 0) //larger than left
                     {
                         (array[parentIndex], array[leftChildIndex]) = (array[leftChildIndex], array[parentIndex]);
                         SwimDown(leftChildIndex);
-                    }
-                    else if (array[parentIndex].CompareTo(array[rightChildIndex]) > 0) //smaller than left but larger than right
-                    {
-                        (array[parentIndex], array[rightChildIndex]) = (array[rightChildIndex], array[parentIndex]);
-                        SwimDown(rightChildIndex);
                     }
                 }
                 else
@@ -111,7 +166,7 @@ namespace PriorityQueue
                     }
                 }
             }
-            else if (leftChildIndex <= tailIndex) //one left child
+            else if (leftChildIndex <= tailIndex) //one left child. when there is only left chid, this left chid is last one.
             {
                 if (array[parentIndex].CompareTo(array[leftChildIndex]) > 0) //larger than left
                 {

@@ -17,5 +17,7 @@ namespace PriorityQueue
         public T Peek();
 
         public void Clear();
+
+        public bool IsEmpty();
     }
 }

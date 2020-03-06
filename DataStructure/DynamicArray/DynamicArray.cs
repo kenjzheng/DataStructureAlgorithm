@@ -28,6 +28,7 @@ namespace DynamicArray
         public void Clear()
         {
             array = new T[initialArraySize];
+            pointer = 0;
         }
 
         public bool Contains(T t)
@@ -90,7 +91,6 @@ namespace DynamicArray
             if (pointer < array.Length)
             {
                 array[pointer] = t;
-                pointer++;
             }
             else
             {
@@ -101,10 +101,10 @@ namespace DynamicArray
                 }
                 array = newArray;
                 array[pointer] = t;
-                pointer++;
             }
-            
-            return pointer;
+
+            pointer++;
+            return pointer-1;
         }
 
         public IEnumerator<T> GetEnumerator()
