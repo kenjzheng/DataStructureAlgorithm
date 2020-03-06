@@ -8,13 +8,8 @@ namespace PriorityQueue
     //using binary heap for implementation
     public class PriorityQueue<T> : IPQueue<T> where T:IComparable<T>, IEquatable<T>
     {
-        IDynamicArray<T> array = null;
+        IDynamicArray<T> array = new DynamicArray<T>(10);
         private int tailIndex = -1;
-
-        public PriorityQueue()
-        {
-            array = new DynamicArray<T>(10);
-        }
 
         public void Add(T t)
         {
