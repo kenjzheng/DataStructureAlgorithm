@@ -57,7 +57,7 @@ namespace PriorityQueue
         {
             if (!IsEmpty())
             {
-                (array[0], array[tailIndex]) = (array[tailIndex], array[0]);
+                Swap(0, tailIndex);
                 var returnValue = array[tailIndex];
                 array.RemoveAt(tailIndex);
                 tailIndex--;
@@ -79,7 +79,7 @@ namespace PriorityQueue
                     {
                         if (index != tailIndex)
                         {
-                            (array[index], array[tailIndex]) = (array[tailIndex], array[index]);
+                            Swap(index, tailIndex);
                             array.RemoveAt(tailIndex);
                             tailIndex--;
 
@@ -127,7 +127,7 @@ namespace PriorityQueue
 
             if (array[parentIndex].CompareTo(array[childIndex]) > 0)
             {
-                (array[parentIndex], array[childIndex]) = (array[childIndex], array[parentIndex]);
+                Swap(parentIndex, childIndex);
 
                 BubbleUp(parentIndex);
             }
@@ -148,7 +148,7 @@ namespace PriorityQueue
                 {
                     if (array[parentIndex].CompareTo(array[leftChildIndex]) > 0) //larger than left
                     {
-                        (array[parentIndex], array[leftChildIndex]) = (array[leftChildIndex], array[parentIndex]);
+                        Swap(parentIndex, leftChildIndex);
                         SwimDown(leftChildIndex);
                     }
                 }
@@ -156,7 +156,7 @@ namespace PriorityQueue
                 {
                     if (array[parentIndex].CompareTo(array[rightChildIndex]) > 0)
                     {
-                        (array[parentIndex], array[rightChildIndex]) = (array[rightChildIndex], array[parentIndex]);
+                        Swap(parentIndex, rightChildIndex);
                         SwimDown(rightChildIndex);
                     }
                 }
@@ -165,11 +165,16 @@ namespace PriorityQueue
             {
                 if (array[parentIndex].CompareTo(array[leftChildIndex]) > 0) //larger than left
                 {
-                    (array[parentIndex], array[leftChildIndex]) = (array[leftChildIndex], array[parentIndex]);
+                    Swap(parentIndex, leftChildIndex);
                 }
             }
 
             return;
+        }
+
+        private void Swap(int source, int target)
+        {
+            (array[source], array[target]) = (array[target], array[source]);
         }
     }
 }

@@ -18,7 +18,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "DataStructure\Common\Common.csproj", "{68EFC43B-1E22-4C2A-A5DF-44E229EF1AEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriorityQueue", "DataStructure\PriorityQueue\PriorityQueue.csproj", "{78CBE9AD-1F11-450D-A491-1202541C1434}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PriorityQueue", "DataStructure\PriorityQueue\PriorityQueue.csproj", "{78CBE9AD-1F11-450D-A491-1202541C1434}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnionFind", "DataStructure\UnionFind\UnionFind.csproj", "{ED5B8683-7D34-4CCC-AB1F-8785BF405348}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +44,10 @@ Global
 		{78CBE9AD-1F11-450D-A491-1202541C1434}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78CBE9AD-1F11-450D-A491-1202541C1434}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78CBE9AD-1F11-450D-A491-1202541C1434}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED5B8683-7D34-4CCC-AB1F-8785BF405348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED5B8683-7D34-4CCC-AB1F-8785BF405348}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED5B8683-7D34-4CCC-AB1F-8785BF405348}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED5B8683-7D34-4CCC-AB1F-8785BF405348}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{50753319-90D1-41DE-9F53-C6CB81F8AC86} = {E2AF4486-9E0C-4069-8E71-F8B985BC83E8}
 		{68EFC43B-1E22-4C2A-A5DF-44E229EF1AEE} = {E2AF4486-9E0C-4069-8E71-F8B985BC83E8}
 		{78CBE9AD-1F11-450D-A491-1202541C1434} = {E2AF4486-9E0C-4069-8E71-F8B985BC83E8}
+		{ED5B8683-7D34-4CCC-AB1F-8785BF405348} = {E2AF4486-9E0C-4069-8E71-F8B985BC83E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6AA8E76B-8816-4800-8F52-E5788D57E5AA}
